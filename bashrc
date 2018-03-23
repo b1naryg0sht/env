@@ -1,3 +1,5 @@
+VERSION=`cat /etc/os-release | grep VERSION_ID | cut -d = -f 2`
+
 alias ll=`ls -al`
 alias rmf=`rm -f`
 alias rmrf=`rm -rf`
@@ -27,10 +29,14 @@ grepc() {
 }
 export grepc
 
+if [ $VERSION = "7" ];then
+
 rbnetwork() {
-	VERSION=`cat /etc/os-release | grep VERSION_ID | cut -d = -f 2`
-	if [ $VERSION = "7" ];then
 		systemctl restart network
-	fi
 }
 export rbnetwork
+
+alias ip=`ip addr`
+
+fi
+

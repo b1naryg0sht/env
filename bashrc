@@ -26,3 +26,10 @@ grepc() {
   grep -rn --include=*.{c,cpp,cc} $PATTERN $DIR
 }
 export grepc
+
+rbnetwork() {
+	VERSION=`cat /etc/os-release | grep VERSION_ID | cut -d = -f 2`
+	if [ $VERSION = "7" ];then
+		systemctl restart network
+	fi
+}

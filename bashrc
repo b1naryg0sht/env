@@ -33,3 +33,4 @@ rbnetwork() {
 		systemctl restart network
 	fi
 }
+export rbnetwork

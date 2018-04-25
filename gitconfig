@@ -8,7 +8,7 @@
   #show branch info
   brav = branch -av
   
-  #checkou
+  #checkout
   co = checkout
   #create a new branch and checkout
   cob = checkout -b
@@ -19,11 +19,21 @@
   lp1 = log -p -1
   #show last 2 commit content
 	lp2 = log -p -2
-	
+
+	#diff
+	df = diff
+	dfst = diff --stat
+	dfca = diff --cached
+
+	addall = add --all
+
   #log pretty
 	l0 = log --color --graph --decorate --pretty=oneline --abbrev-commit --date-order
 	l1 = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
 	l2 = log --all --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
+	lv0 = log --color --reverse  --decorate --pretty=oneline --abbrev-commit --date-order
+	lv1 = log --reverse --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
+	lv2 = log --all --reverse --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
 	list-tags = for-each-ref --format=\"%(color:yellow)tag %(objectname)%(color:reset)
   
 [color]

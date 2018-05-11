@@ -22,10 +22,16 @@
 
 	#diff
 	df = diff
-	dfst = diff --stat
-	dfca = diff --cached
+	diffst = diff --stat
+	diffca = diff --cached
 
+	#rm
+	rmca = rm --cached
+
+	#misc
 	addall = add --all
+	ci = commit
+	reseth = reset --hard
 
   #log pretty
 	l0 = log --color --graph --decorate --pretty=oneline --abbrev-commit --date-order

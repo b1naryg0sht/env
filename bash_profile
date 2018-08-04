@@ -43,14 +43,14 @@ fi
 function unsetvim()
 {
 	if [ -f ~/.vimrc ];then
-		mv ~/.vimrc ~/.vimrc-bak
+		mv -f ~/.vimrc ~/.vimrc-bak
 	fi
 }
 
 function setvim()
 {
 	if [ -f ~/.vimrc-bak ];then
-		mv ~/.vimrc-bak ~/.vimrc
+		mv -f ~/.vimrc-bak ~/.vimrc
 	fi
 }
 export setvim

@@ -1,8 +1,8 @@
 VERSION=`cat /etc/os-release | grep VERSION_ID | cut -d = -f 2`
 
-alias ll=`ls -al`
-alias rmf=`rm -f`
-alias rmrf=`rm -rf`
+alias ll="ls -al"
+alias rmf="rm -f"
+alias rmrf="rm -rf"
 
 tarz() {
   FILE=$1
@@ -15,8 +15,8 @@ tarz() {
 
 export tarz
 
-alias untarz=`tar -zxvf`
-alias chmodx=`chmod u+x`
+alias untarz="tar -zxvf"
+alias chmodx="chmod u+x"
 
 grepc() {
   DIR=$1
@@ -36,7 +36,22 @@ rbnetwork() {
 }
 export rbnetwork
 
-alias ip=`ip addr`
+alias ip="ip addr"
 
 fi
 
+function unsetvim()
+{
+	if [ -f ~/.vimrc ];then
+		mv ~/.vimrc ~/.vimrc-bak
+	fi
+}
+
+function setvim()
+{
+	if [ -f ~/.vimrc-bak ];then
+		mv ~/.vimrc-bak ~/.vimrc
+	fi
+}
+export setvim
+export unsetvim

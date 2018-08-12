@@ -17,20 +17,43 @@ set autoindent "设置C/C++方式自动对齐
 set cindent "设置C/C++方式自动对齐
 set smartindent "智能对齐方式
 
-filetype on "检测文件类型
-filetype indent on "针对不同的文件采取不同的缩进方式
-filetype plugin indent on
-
 set whichwrap=b,s,<,>,[,] "光标从行首和行末时可以跳到另一行去
 set showmatch "设置匹配模式，显示匹配的括号 
 
 au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif "重新打开文件时定位到上次的位置
 "列出当前目录文件
-map <F3> :tabnew .<CR> 
 
 set incsearch "输入字符串就显示匹配点
 set hlsearch "高亮查找结果
 set cursorline " 突出显示当前行
+""""""""""""""""""IDE SUPPORT""""""""""""""""""""""""
+"1.setup vundle for plugin management(pathogon is ok)
+"2.install nerdtree for file management
+"3.ctags/cscope for c/c++ funtion lookup
+"""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+""""""""""""""vundle setup"""""""""""""""""""""""""""
+set nocompatible              " be iMproved, required
+"filetype on "检测文件类型
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+Plugin 'VundleVim/Vundle.vim'
+Plugin 'https://github.com/scrooloose/nerdtree.git'
+
+call vundle#end()            " required
+filetype plugin indent on
+
+map <F3> :NERDTreeMirror<CR>
+map <F3> :NERDTreeToggle<CR>
+"""""""""""""""""""""""""""""""""""""""""""""""""""""
+"""""""""""""""NERDTree setup""""""""""""""""""""""""
+"execute pathogen#infect() 
+autocmd vimenter * NERDTree
+wincmd w
+autocmd VimEnter * wincmd w 
+"""""""""""""""""""""""""""""""""""""""""""""""""""""
+filetype indent on "针对不同的文件采取不同的缩进方式
+
 
 map <F5> :call ExecFile()<CR>
 func! ExecFile()

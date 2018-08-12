@@ -4,18 +4,19 @@ alias ll="ls -al"
 alias rmf="rm -f"
 alias rmrf="rm -rf"
 
-tarz() {
+tarc() {
   FILE=$1
-  if [ z$FILE = z ];then
+  FILE=${FILE%/*}
+  if [ z${FILE} = z ];then
     echo "tarz file null"
     return 1
   fi
   tar -zcvf ${FILE}.tar.gz ${FILE} 
 }
 
-export tarz
+export tarc
 
-alias untarz="tar -zxvf"
+alias tarx="tar -zxvf"
 alias chmodx="chmod u+x"
 
 grepc() {

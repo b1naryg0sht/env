@@ -43,11 +43,17 @@ Plugin 'https://github.com/scrooloose/nerdtree.git'
 call vundle#end()            " required
 filetype plugin indent on
 
+"F3显示或者隐藏目录窗口
 map <F3> :NERDTreeMirror<CR>
 map <F3> :NERDTreeToggle<CR>
+"F8 切换到前一个tab
+nnoremap <F8> gT
+"F9 切换到后一个tab
+nnoremap <F9> gt
 """""""""""""""""""""""""""""""""""""""""""""""""""""
 """""""""""""""NERDTree setup""""""""""""""""""""""""
 "execute pathogen#infect() 
+"让NERDTRee在打开vim时自动开启
 autocmd vimenter * NERDTree
 wincmd w
 autocmd VimEnter * wincmd w 

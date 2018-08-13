@@ -56,6 +56,9 @@ autocmd VimEnter * wincmd w
 "F3显示或者隐藏目录窗口
 map <F3> :NERDTreeMirror<CR>
 map <F3> :NERDTreeToggle<CR>
+" F4关闭NERDTree打开的标签页
+map <F4> :tabc<CR>
+
 "F8 切换到前一个tab
 nnoremap <F7> gT
 "F9 切换到后一个tab
@@ -65,10 +68,25 @@ nnoremap <F8> gt
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 """""""""""""""""""""""""""""""""""""""""""""""""""""
 """""""""""""""""ctags setup"""""""""""""""""""""""""
+"F10查看函数定义
 map <F10> <ESC>g<C-]>
+"F9往回跳转
 map <F9> <ESC><C-T>
 """"""""""""""""""""""""""""""""""""""""""""""""""""
 
 filetype indent on "针对不同的文件采取不同的缩进方式
-nmap <F12> <ESC><C-w>l
+"F11往左切换窗口
 nmap <F11> <ESC><C-w>h
+"F12往右切换窗口
+nmap <F12> <ESC><C-w>l
+"复制光标所在单词
+nmap <C-y> <ESC>yaw
+"ctrl+s 保存,s for save, 需要把stty -ixon加在bash_profile中
+imap <C-s> <ESC>:w!<CR>
+nmap <C-s> <ESC>:w!<CR>
+"ctrl+q 退出,q for quit
+nmap <C-q> <ESC>:qa!<CR>
+imap <C-q> <ESC>:qa!<CR>
+"ctrl+c 保存退出, c for close
+imap <C-c> <ESC>:wqa<CR>
+nmap <C-c> <ESC>:wqa<CR>

@@ -26,6 +26,7 @@ au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g
 set incsearch "输入字符串就显示匹配点
 set hlsearch "高亮查找结果
 set cursorline " 突出显示当前行
+
 """"""""""""""""""IDE SUPPORT""""""""""""""""""""""""
 "1.setup vundle for plugin management(pathogon is ok)
 "2.install nerdtree for file management
@@ -38,18 +39,12 @@ set nocompatible              " be iMproved, required
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
-Plugin 'https://github.com/scrooloose/nerdtree.git'
-
+"Plugin 'https://github.com/scrooloose/nerdtree.git'
+Plugin 'scrooloose/nerdtree'
+Plugin 'Valloric/YouCompleteMe'
 call vundle#end()            " required
 filetype plugin indent on
 
-"F3显示或者隐藏目录窗口
-map <F3> :NERDTreeMirror<CR>
-map <F3> :NERDTreeToggle<CR>
-"F8 切换到前一个tab
-nnoremap <F8> gT
-"F9 切换到后一个tab
-nnoremap <F9> gt
 """""""""""""""""""""""""""""""""""""""""""""""""""""
 """""""""""""""NERDTree setup""""""""""""""""""""""""
 "execute pathogen#infect() 
@@ -57,22 +52,23 @@ nnoremap <F9> gt
 autocmd vimenter * NERDTree
 wincmd w
 autocmd VimEnter * wincmd w 
+
+"F3显示或者隐藏目录窗口
+map <F3> :NERDTreeMirror<CR>
+map <F3> :NERDTreeToggle<CR>
+"F8 切换到前一个tab
+nnoremap <F7> gT
+"F9 切换到后一个tab
+nnoremap <F8> gt
+
+"当NERDTree为剩下的唯一窗口时自动关闭
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 """""""""""""""""""""""""""""""""""""""""""""""""""""
+"""""""""""""""""ctags setup"""""""""""""""""""""""""
+map <F10> :<ESC><C-]><CR>
+map <F9> :<ESC><C-T><CR>
+""""""""""""""""""""""""""""""""""""""""""""""""""""
+
 filetype indent on "针对不同的文件采取不同的缩进方式
-
-
-map <F5> :call ExecFile()<CR>
-func! ExecFile()
-	exec "w"
-	if &filetype == 'c'
-		exec "!g++ % -o %<"
-		exec "! ./%<"
-	elseif &filetype == 'cpp'
-		exec "!g++ % -o %<"
-		exec "! ./%<"
-	elseif &filetype == 'py' 
-		exec ":!python %" 
-	elseif &filetype == 'sh'
-		exec ":!chmod u+x %;./%"
-	endif
-endfunc
+nmap <F11> :<ESC><C-w>l<CR>
+nmap <F12> :<ESC><C-w>h<CR>

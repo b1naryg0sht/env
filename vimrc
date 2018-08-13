@@ -41,7 +41,7 @@ call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 "Plugin 'https://github.com/scrooloose/nerdtree.git'
 Plugin 'scrooloose/nerdtree'
-Plugin 'Valloric/YouCompleteMe'
+"Plugin 'Valloric/YouCompleteMe'
 call vundle#end()            " required
 filetype plugin indent on
 
@@ -65,10 +65,10 @@ nnoremap <F8> gt
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 """""""""""""""""""""""""""""""""""""""""""""""""""""
 """""""""""""""""ctags setup"""""""""""""""""""""""""
-map <F10> :<ESC><C-]><CR>
-map <F9> :<ESC><C-T><CR>
+map <F10> <ESC>g<C-]>
+map <F9> <ESC><C-T>
 """"""""""""""""""""""""""""""""""""""""""""""""""""
 
 filetype indent on "针对不同的文件采取不同的缩进方式
-nmap <F11> :<ESC><C-w>l<CR>
-nmap <F12> :<ESC><C-w>h<CR>
+nmap <F12> <ESC><C-w>l
+nmap <F11> <ESC><C-w>h

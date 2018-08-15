@@ -56,3 +56,7 @@ function setvim()
 }
 export setvim
 export unsetvim
+
+alias ps="ps -eo pid,lstart,cmd"
+# for vim config
+stty -ixon

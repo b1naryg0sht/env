@@ -32,11 +32,6 @@ export grepc
 
 if [ $VERSION = "7" ];then
 
-rbnetwork() {
-		systemctl restart network
-}
-export rbnetwork
-
 alias ip="ip addr"
 
 fi
@@ -57,6 +52,6 @@ function setvim()
 export setvim
 export unsetvim
 
-alias ps="ps -eo pid,lstart,cmd"
+#alias ps="ps -eo pid,lstart,cmd"
 # for vim config
 stty -ixon

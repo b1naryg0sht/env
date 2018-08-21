@@ -27,12 +27,40 @@ set incsearch "输入字符串就显示匹配点
 set hlsearch "高亮查找结果
 set cursorline " 突出显示当前行
 
-""""""""""""""""""IDE SUPPORT""""""""""""""""""""""""
-"1.setup vundle for plugin management(pathogon is ok)
-"2.install nerdtree for file management
-"3.ctags/cscope for c/c++ funtion lookup
-"""""""""""""""""""""""""""""""""""""""""""""""""""""
+filetype indent on "针对不同的文件采取不同的缩进方式
+"F11往左切换窗口
+nmap <F11> <ESC><C-w>h
+"F12往右切换窗口
+nmap <F12> <ESC><C-w>l
+"复制光标所在单词
+nmap <C-y> <ESC>yaw
+"ctrl+s 保存,s for save, 需要把stty -ixon加在bash_profile中
+imap <C-s> <ESC>:w!<CR>
+nmap <C-s> <ESC>:w!<CR>
+"ctrl+q 退出,q for quit
+nmap <C-q> <ESC>:qa!<CR>
+imap <C-q> <ESC>:qa!<CR>
+"ctrl+c 保存退出, c for close
+imap <C-c> <ESC>:wqa<CR>
+nmap <C-c> <ESC>:wqa<CR>
 
+""""""""""""""""""IDE SUPPORT""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+""""""""""""""""""part I:Introduction""""""""""""""""
+"vundle for plugin management(pathogon is ok)
+"nerdtree for file management
+"ctags/cscope for c/c++ funtion lookup
+""""""""""""""""""part I end"""""""""""""""""""""""""
+
+""""""""""""""""""part II:Install""""""""""""""""""""""
+"1.install vundle 
+"git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+"2.install nerdtree.
+"after have successfully install vundle, then open vim ,type :Plugin Install, enter
+"3.install ctags
+"yum install ctags
+"""""""""""""""""part II end"""""""""""""""""""""""""""
+
+"""""""""""""""""part III:Setup"""""""""""""""""""""""
 """"""""""""""vundle setup"""""""""""""""""""""""""""
 set nocompatible              " be iMproved, required
 "filetype on "检测文件类型
@@ -46,6 +74,7 @@ call vundle#end()            " required
 filetype plugin indent on
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""
+
 """""""""""""""NERDTree setup""""""""""""""""""""""""
 "execute pathogen#infect() 
 "让NERDTRee在打开vim时自动开启
@@ -67,26 +96,11 @@ nnoremap <F8> gt
 "当NERDTree为剩下的唯一窗口时自动关闭
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 """""""""""""""""""""""""""""""""""""""""""""""""""""
+
 """""""""""""""""ctags setup"""""""""""""""""""""""""
 "F10查看函数定义
 map <F10> <ESC>g<C-]>
 "F9往回跳转
 map <F9> <ESC><C-T>
 """"""""""""""""""""""""""""""""""""""""""""""""""""
-
-filetype indent on "针对不同的文件采取不同的缩进方式
-"F11往左切换窗口
-nmap <F11> <ESC><C-w>h
-"F12往右切换窗口
-nmap <F12> <ESC><C-w>l
-"复制光标所在单词
-nmap <C-y> <ESC>yaw
-"ctrl+s 保存,s for save, 需要把stty -ixon加在bash_profile中
-imap <C-s> <ESC>:w!<CR>
-nmap <C-s> <ESC>:w!<CR>
-"ctrl+q 退出,q for quit
-nmap <C-q> <ESC>:qa!<CR>
-imap <C-q> <ESC>:qa!<CR>
-"ctrl+c 保存退出, c for close
-imap <C-c> <ESC>:wqa<CR>
-nmap <C-c> <ESC>:wqa<CR>
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""

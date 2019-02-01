@@ -19,17 +19,6 @@ export tarc
 alias tarx="tar -zxvf"
 alias chmodx="chmod u+x"
 
-grepc() {
-  DIR=$1
-  PATTERN=$2
-  if [ z$DIR = z ];then
-    echo "grep target dir null"
-    return 1
-  fi
-  grep -rn --include=*.{c,cpp,cc} $PATTERN $DIR
-}
-export grepc
-
 if [ $VERSION = "7" ];then
 
 alias ip="ip addr"
@@ -52,6 +41,5 @@ function setvim()
 export setvim
 export unsetvim
 
-#alias ps="ps -eo pid,lstart,cmd"
 # for vim config
 stty -ixon

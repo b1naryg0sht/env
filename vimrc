@@ -55,7 +55,7 @@ nmap <C-c> <ESC>:wqa<CR>
 "1.install vundle 
 "git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 "2.install nerdtree.
-"after have successfully install vundle, then open vim ,type :Plugin Install, enter
+"after have successfully install vundle, then open vim ,type :PluginInstall, enter
 "3.install ctags
 "yum install ctags
 """""""""""""""""part II end"""""""""""""""""""""""""""

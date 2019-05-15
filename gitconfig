@@ -22,9 +22,9 @@
 
 #diff
 	df = diff
-	diffst = diff --stat
-	diffca = diff --cached
-
+	dfst = diff --stat
+	dfca = diff --cached
+	dfcast = diff --cached --stat
 #rm
 	rmca = rm --cached
 
